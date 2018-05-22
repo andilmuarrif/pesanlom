@@ -44,6 +44,9 @@
 			  <li class="nav-item">
                 <a class="nav-link" href="../Login/account.html">Account</a>
               </li>
+	      <li class="nav-item">
+                <a class="nav-link" href="../Login/logout.php">Logout</a>
+              </li>
 
             </ul>
             
