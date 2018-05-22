@@ -1,27 +1,21 @@
 <?php
-
 //koneksi ke database
-$conn = mysqli_connect("localhost", "root", "", "pesanlom");
+require 'functionedit.php';
 
 
 //ambil data dari tabel barang
 
-$result = mysqli_query($conn, "SELECT * FROM barang");
+$queryy = query("SELECT * FROM barang ");
 
-//cek koneksi database
-if(!$result){
-    
-    echo mysqli_error($conn);
-}
 
 /** proses pengecekan apakah data dari database berhasil ditampilkan atau 
 tidak dengan menggunakan tampilan var_dump
-while ($data = mysqli_fetch_assoc($result) ) {
+while ($data = mysqli_fetch_assoc($query) ) {
 *var_dump($data); }
 */
 
-
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -104,24 +98,24 @@ while ($data = mysqli_fetch_assoc($result) ) {
                                     <th>Nama Barang</th>
                                     <th>Harga Barang</th>
                                     <th>Stok Barang</th>	
-									<th>Aksi</th>	
+				    <th>Aksi</th>	
                                 </tr>
                             </thead>
                             
                                 <?php $i = 1; ?>   
-								<?php while( $row = mysqli_fetch_assoc($result) ) : ?>    
-								<tr>
-									<td><?= $i ?></td>
-									<td><?= $row["nama_barang"]; ?></td>
-									<td><?= $row["harga"]; ?></td>
-									<td><?= $row["stok"]; ?></td>
-									<td>
-										<a href="">Edit</a> ||
-										<a href="hapus.php?id_barang=<?= $row["id_barang"]?>">Hapus</a>
-									</td>
-								</tr>
-								<?php $i++; ?>
-								<?php endwhile; ?>
+				<?php foreach( $queryy as $row ) : ?>    
+    				<tr>
+        				<td><?= $i ?></td>
+        				<td><?= $row["nama_barang"]; ?></td>
+        				<td><?= $row["harga"]; ?></td>
+        				<td><?= $row["stok"]; ?></td>
+        				<td>
+           				 <a href="">Ubah</a> ||
+         				   <a href="hapus.php?id_barang=<?= $row["id_barang"]?>">Hapus</a>
+       					 </td>
+    				</tr>
+  				<?php $i++; ?>
+   				<?php endforeach; ?>
                             
                         </table>
 						
