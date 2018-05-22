@@ -111,7 +111,7 @@ while ($data = mysqli_fetch_assoc($query) ) {
         				<td><?= $row["stok"]; ?></td>
         				<td>
            				 <a href="">Ubah</a> ||
-         				   <a href="hapus.php?id_barang=<?= $row["id_barang"]?>">Hapus</a>
+         				   <a href="../login/hapus.php?id_barang=<?= $row["id_barang"]?>">Hapus</a>
        					 </td>
     				</tr>
   				<?php $i++; ?>
