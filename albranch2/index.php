@@ -4,7 +4,7 @@
     <title>PesanLom</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+<!--index merupakan halaman awal dari program web-->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway" rel="stylesheet">
 
     <link rel="stylesheet" href="css/bootstrap.css">
