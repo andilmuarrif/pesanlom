@@ -3,7 +3,6 @@ include "connect.php";
 $nama_barang= $_POST['nama_barang']; //get the nama value from form
 $q = "SELECT * from barang where nama_barang like '%$nama_barang%' "; //query to get the search result
 $result = mysql_query($q); //execute the query $q
-header(string)
 echo "<center>";
 echo "<h2> Hasil Searching </h2>";
 echo "<table border='1' cellpadding='5' cellspacing='8'>";
@@ -22,6 +21,5 @@ echo "
 </tr>";
 }
 echo "</table>";
-?>
 
-<!--header-->
+?>
