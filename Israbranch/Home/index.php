@@ -35,7 +35,10 @@
                 <a class="nav-link" href="../login/loginindex.html">			  
 				<?php
 				session_start();
+				if ($_SESSION == true)
 				echo 'Helo '.$_SESSION['username'];
+				else
+				echo 'login';
 			?></a>
               </li>
 			  <li class="nav-item">
