@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <!--commentttttttttttttttttttttttttttttttttt-->
+    
     <header role="banner">
      
       <nav class="navbar navbar-expand-md navbar-dark bg-light">
@@ -76,17 +76,6 @@
       </div>
     </section>
     <!-- END section -->
-
-    
-
-    
-    
-		
-    
-    
-   
-    
-            
     
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
