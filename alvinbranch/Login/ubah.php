@@ -21,7 +21,7 @@ if( isset($_POST["submit"]) ){
        echo "
             <script>
                 alert('data gagal diubah!');
-                document.location.href = '../login/addbarang.php'
+                document.location.href = '../Home/addbarang.php'
             </script>
        ";
    }
