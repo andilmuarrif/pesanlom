@@ -62,7 +62,7 @@ while ($data = mysqli_fetch_assoc($query) ) {
                         <a href="../home/addbarang.php"><i class="fa fa-desktop "></i>Products</a>
                     </li>
 					<li>
-                        <a href="../Login/addproduct.html"><i class="fa fa-edit "></i>Add Product</a>
+                        <a href="../Login/addproduct.php"><i class="fa fa-edit "></i>Add Product</a>
                     </li>
                    
 
@@ -110,8 +110,8 @@ while ($data = mysqli_fetch_assoc($query) ) {
         				<td><?= $row["harga"]; ?></td>
         				<td><?= $row["stok"]; ?></td>
         				<td>
-           				 <a href="">Ubah</a> ||
-         				   <a href="hapus.php?id_barang=<?= $row["id_barang"]?>">Hapus</a>
+           				 <a href="../Login/ubah.php?id_barang=<?= $row["id_barang"]?>">Ubah</a> ||
+         				   <a href="hapus.php?id_barang=<?= $row["id_barang"]?> onclick="return confirm('yakin?');">Hapus</a>
        					 </td>
     				</tr>
   				<?php $i++; ?>
