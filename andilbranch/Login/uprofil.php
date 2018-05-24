@@ -1,28 +1,33 @@
+
 <?php
-//koneksi ke database
-require 'functionedit.php';
 
-
+ //koneksi ke database
+ $conn = mysqli_connect("localhost", "root", "", "pesanlom");
 //ambil data dari tabel barang
 
-$queryy = query("SELECT * FROM barang ");
+$result = mysqli_query($conn, "SELECT * FROM user");
 
+//cek koneksi database
+if(!$result){
+    
+    echo mysqli_error($conn);
+}
 
 /** proses pengecekan apakah data dari database berhasil ditampilkan atau 
 tidak dengan menggunakan tampilan var_dump
-while ($data = mysqli_fetch_assoc($query) ) {
+while ($data = mysqli_fetch_assoc($result) ) {
 *var_dump($data); }
 */
 
-?>
 
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Supplier Account</title>
+    <title>User Account</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -42,7 +47,7 @@ while ($data = mysqli_fetch_assoc($query) ) {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Supplier Account</a>
+                    <a class="navbar-brand" href="#">User Account</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -59,14 +64,10 @@ while ($data = mysqli_fetch_assoc($query) ) {
                     
 
                     <li>
-                        <a href="../home/addbarang.php"><i class="fa fa-desktop "></i>Products</a>
+                        <a href="../home/addbarang.php"><i class="fa fa-desktop "></i>Bio</a>
                     </li>
-					<li>
-                        <a href="../Login/addproduct.php"><i class="fa fa-edit "></i>Add Product</a>
-                    </li>
-                    <li>
-                        <a href="../Login/updateproduct.php"><i class="fa fa-edit "></i>Update Product</a>
-                    </li>
+					
+                   
 
 
                     
@@ -81,7 +82,7 @@ while ($data = mysqli_fetch_assoc($query) ) {
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Informasi Barang</h2>
+                        <h2>User Profile</h2>
                     </div>
                 </div>
                 
@@ -91,35 +92,36 @@ while ($data = mysqli_fetch_assoc($query) ) {
                 <hr />
                 
                     <div class="col-md-6">
-                        <h5>List Barang</h5>
+                        <h5>User Info</h5>
 						
                         <table class="table table-striped table-bordered table-hover">
                             <thead>	
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Nama Barang</th>
-                                    <th>Harga Barang</th>
-                                    <th>Stok Barang</th>	
-				    <th>Aksi</th>	
+                                    <th>Nama Kafe</th>
+                                    <th>Nama Pemilik</th>
+                                    <th>Username</th>
+                                    <th>Email</th>	
+									<th>Alamat</th>	
+									<th>No_HP</th>	
                                 </tr>
                             </thead>
                             
                                 <?php $i = 1; ?>   
-				<?php foreach( $queryy as $row ) : ?>    
-    				<tr>
-        				<td><?= $i ?></td>
-        				<td><?= $row["nama_barang"]; ?></td>
-        				<td><?= $row["harga"]; ?></td>
-        				<td><?= $row["stok"]; ?></td>
-        				<td>
-
-           				 <a href="../login/ubah.php?id_barang=<?= $row["id_barang"]?>">Ubah</a> ||
-         				   <a href="../login/hapus.php?id_barang=<?= $row["id_barang"]?> onclick="return confirm('yakin?');">Hapus</a>
-                                                                                                                    
-       					 </td>
-    				</tr>
-  				<?php $i++; ?>
-   				<?php endforeach; ?>
+								<?php
+									$query = mysqli_query ($conn, "SELECT * FROM user");
+									while( $row = mysqli_fetch_assoc($query) ) : ?>    
+									<tr>
+										
+									<td><?= $row["kafe"]; ?></td>
+									<td><?= $row["manager"]; ?></td>
+									<td><?= $row["username"]; ?></td>
+									<td><?= $row["email"]; ?></td>
+									<td><?= $row["alamat"]; ?></td>
+									<td><?= $row["no_hp"]; ?></td>
+									
+								</tr>
+								<?php $i++; ?>
+								<?php endwhile; ?>
                             
                         </table>
 						
@@ -149,3 +151,4 @@ while ($data = mysqli_fetch_assoc($query) ) {
 
 </body>
 </html>
+
