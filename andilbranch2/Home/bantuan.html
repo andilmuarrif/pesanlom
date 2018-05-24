@@ -2,9 +2,20 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
     body{
-        background: url(images/big_image_1.jpg);
+        background-color: darkgrey;
+        background-image: url(images/10.jpg);
+    }
+    #awal{
+        background: black;
+        border-top-left-radius: 20px;
+    }
+    #akhir{
+        border-bottom-right-radius: 20px;
     }
 .collapsible {
     background-color: #777;
@@ -12,7 +23,7 @@
     cursor: pointer;
     padding: 18px;
     width: 90%;
-    border: none;
+    border: 1px solid white;
     text-align: center;
     outline: none;
     font-size: 25px;
@@ -24,7 +35,7 @@
 }
 
 .content {
-	width: 80%;
+	width: 90%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
@@ -33,29 +44,65 @@
     position: inherit;
     margin: 0% 0% 0% 5%;
     font-size: 20px;
+    
+}
     h2{
         text-align: center;
     }
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 50px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: inherit;
+    margin: 0% 0% 0% 5%;
+}
+.back {
+    background-color: white;
+    color: black;
+    border: 2px solid darkgray;
+}
+
+.back:hover {
+    background-color: gray;
+}
+
 </style>
+    <a href="Home.html"><button class="button back"><span class="glyphicon glyphicon-arrow-left"> Kembali</span></button></a>
 </head>
 <body>
 <h2 style="font-size:5vw;">Bantuan</h2>
 
-<button class="collapsible">Pengenalan</button>
+<button id="awal" class="collapsible">Pengenalan</button>
 <div class="content">
-  <p>Halaman ini akan menuntun anda untuk mempermudah dalam menggunakan aplikasi ini. Berikut tata caranya :</p>
+  <p>Halaman ini akan menuntun anda untuk mempermudah dalam menggunakan aplikasi ini. Berikut tata cara untuk penggunaan aplikasi Pesanlom :</p>
 </div>
 <button class="collapsible">Login</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>1. Klik button <b>Login</b>, maka anda akan dialihkan ke halaman Login user dimana kita diberikan 2 pilihan yaitu sebagai user atau manager, pilih salah satunya.</p>
+    <p>2. Setelah itu, kita akan dialihkan ke halaman Login berdasarkan user pilihan kita</p>
+    <p>3. Masukkan username dan password dengan benar.</p>
+    <p>4. Klik <b>OK</b>. Maka anda akan login ke aplikasi Pesanlom.</p>
 </div>
 <button class="collapsible">Register</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p>1. Klik button <b>Login</b>, maka anda akan dialihkan ke halaman Login user dimana kita diberikan 2 pilihan yaitu sebagai user atau manager, pilih salah satunya.</p>
+    <p>2. Setelah itu, kita akan dialihkan ke halaman Login berdasarkan user pilihan kita</p>
+    <p>3. Pada halaman Login, klik <b>DAFTAR</b></p>
+    <p>4. Pada form <b>Register</b>, isi data sesuai yang diminta seperti nama perusahaan, nama manager, username, email, password, nomor hp dan alamat. </p>
+    <p>5. Klik <b>Register</b>, maka anda akan terdaftar sebagai user baru pada aplikasi Pesanlom.</p>
 </div>
-<button class="collapsible">Pemesanan</button>
+<button id="akhir" class="collapsible">Menambahkan Barang</button>
 <div class="content">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  <p></p>
 </div>
 
 <script>
