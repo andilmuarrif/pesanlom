@@ -1,6 +1,6 @@
 <?php   
 session_start(); 
 session_destroy(); 
-header("location:../Home/index.php"); //logout dan kembali ke halaman index
+header("location:../Login/loginindex.html"); //logout dan kembali ke halaman login
 exit();
 ?>
