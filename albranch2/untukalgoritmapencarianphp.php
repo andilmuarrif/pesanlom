@@ -1,3 +1,4 @@
+<!--old algorithm of searching php-->
 <?php
 include "connection.php";
 $nama_barang= $_POST['nama_barang']; //get the nama value from form
