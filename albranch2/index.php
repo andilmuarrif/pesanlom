@@ -35,13 +35,25 @@
                 <a class="nav-link" href="../login/loginindex.html">			  
 				<?php
 				session_start();
+				if ($_SESSION == true)
 				echo 'Helo '.$_SESSION['username'];
-			?></a>
+				else
+				echo 'login';
+			?>
+			</a>
               </li>
 			  <li class="nav-item">
                 <a class="nav-link" href="../Login/account.html">Account</a>
               </li>
-
+			  <li class="nav-item">
+                <a class="nav-link" href="../Home/about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Home/contact.html">Contact</a>
+              </li>
+			  <li class="nav-item">
+                <a class="nav-link" href="../Login/logout.php">Logout</a>
+              </li>
             </ul>
             
           </div>
@@ -58,28 +70,76 @@
             <div class="mb-5 element-animate">
               <h1>PesanLom</h1>
               <p>Bonding Companies all Around</p>
+			  
             </div>
-<!--
-            <form name="formcari" method="post" action="search_exe.php">
-<table width="330" border="0" align="center" cellpadding="0">
-<tr bgcolor="orange">
-<td height="25" colspan="3">
-<strong> Student Searching ! </strong>
-</td>
-</tr>
-<tr> <td>  Name </td>
-<td> <input type="text" name="nama_barang"> </td>
-</tr>
-<td></td>
-<td> <input type="SUBMIT" name="SUBMIT" id="SUBMIT" value="search" > </td>
-</table>
+		
+
+
+            <!-- form quick search -->
+<form name="form1" method="get" action="" class="form-inline element-animate" id="search-form">
+<input placeholder="Search Product" class="form-control form-control-block search-input" type="text" name="q" id="autocomplete"/> <button type="SUBMIT" name="SUBMIT" class="btn btn-primary">Search</button>
 </form>
-    -->        
-            <form method="post" action="home.php" class="form-inline element-animate" id="search-form">
-              <input type="text" name="nama_barang" class="form-control form-control-block search-input" id="autocomplete" placeholder="Search Product" onFocus="geolocate()">
-              <button type="submit" name="submit" id="submit" class="btn btn-primary">Search</button>
-            </form>
-            
+<!-- menampilkan hasil pencarian -->
+<br>
+<br>
+<font color = "fffff"> 
+<?php
+if(isset($_GET['q']) && $_GET['q']){
+  $conn = mysql_connect("localhost", "root", "");
+  mysql_select_db("pesanlom");
+  $q = $_GET['q'];
+  $sql = "select * from barang where nama_barang like '%$q%' or harga like '%$q%' or stok like '%$q%'";
+  $result = mysql_query($sql);
+  if(mysql_num_rows($result) > 0){
+    ?>
+      <table class="table table-striped table-bordered table-hover" border="9">
+        
+      <tr>
+  <h1> 
+        <td><b>Nama barang</b></td>
+        <td><b>Harga</b></td>
+        <td><b>Stok</b></td>
+</h1>
+      </tr>
+      
+       
+
+      <?php
+      while($barang = mysql_fetch_array($result)){?>
+      <tr>
+       <?php
+  
+    
+    echo "
+
+    <tr>
+    <td>".$barang['nama_barang']."</td>
+    <td>".$barang['harga']."</td>
+    <td>".$barang['stok']."</td>
+    </tr>";
+
+    
+ 
+  ?>
+      
+      <?php }?>
+    </table>
+    <?php
+  }else{
+    echo 'Data not found!';
+  }
+}
+?>
+<font color = "fffff"> 
+			
+
+			
+
+
+
+
+
+			
 
           </div>
         </div>
@@ -109,74 +169,7 @@
     <script src="js/jquery.waypoints.min.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
 
-    <script>
-      // This example displays an address form, using the autocomplete feature
-      // of the Google Places API to help users fill in the information.
-
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-      var placeSearch, autocomplete;
-      var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-      };
-
-      function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
-      }
-
-      function fillInAddress() {
-        // Get the place details from the autocomplete object.
-        var place = autocomplete.getPlace();
-
-        for (var component in componentForm) {
-          document.getElementById(component).value = '';
-          document.getElementById(component).disabled = false;
-        }
-
-        // Get each component of the address from the place details
-        // and fill the corresponding field on the form.
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (componentForm[addressType]) {
-            var val = place.address_components[i][componentForm[addressType]];
-            document.getElementById(addressType).value = val;
-          }
-        }
-      }
-
-      // Bias the autocomplete object to the user's geographical location,
-      // as supplied by the browser's 'navigator.geolocation' object.
-      function geolocate() {
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var geolocation = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            var circle = new google.maps.Circle({
-              center: geolocation,
-              radius: position.coords.accuracy
-            });
-            autocomplete.setBounds(circle.getBounds());
-          });
-        }
-      }
-    </script>
+    
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
         async defer></script>
