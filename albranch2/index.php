@@ -46,10 +46,10 @@
                 <a class="nav-link" href="../Login/account.html">Account</a>
               </li>
 			  <li class="nav-item">
-                <a class="nav-link" href="../Home/about.html">About</a>
+                <a class="nav-link" href="../Home/About2.html">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../Home/contact.html">Contact</a>
+                <a class="nav-link" href="../Home/bantuan.html">Help</a>
               </li>
 			  <li class="nav-item">
                 <a class="nav-link" href="../Login/logout.php">Logout</a>
@@ -76,14 +76,24 @@
 
 
             <!-- form quick search -->
+            
 <form name="form1" method="get" action="" class="form-inline element-animate" id="search-form">
 <input placeholder="Search Product" class="form-control form-control-block search-input" type="text" name="q" id="autocomplete"/> <button type="SUBMIT" name="SUBMIT" class="btn btn-primary">Search</button>
+<br>
+
 </form>
 <!-- menampilkan hasil pencarian -->
 <br>
 <br>
 <font color = "fffff"> 
-<?php
+
+      
+      <?php ?>
+    </table>
+    <?php
+  
+
+
 if(isset($_GET['q']) && $_GET['q']){
   $conn = mysql_connect("localhost", "root", "");
   mysql_select_db("pesanlom");
@@ -113,7 +123,7 @@ if(isset($_GET['q']) && $_GET['q']){
     echo "
 
     <tr>
-    <td>".$barang['nama_barang']."</td>
+    <td><a href=\"home.php?id_barang=".$barang['id_barang']."\">".$barang['nama_barang']."</a></td>
     <td>".$barang['harga']."</td>
     <td>".$barang['stok']."</td>
     </tr>";
@@ -126,6 +136,7 @@ if(isset($_GET['q']) && $_GET['q']){
     </table>
     <?php
   }else{
+
     echo 'Data not found!';
   }
 }

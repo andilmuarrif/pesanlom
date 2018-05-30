@@ -74,45 +74,116 @@
               <p>Bonding Companies all Around</p>
               <br>
               <br>
-     <font color = "fffff">       
-   <!-- form quick search -->
-<form name="form1" method="get" action="">
-Search : <input type="text" name="q" id="q"/> <input type="submit" value="Search"/>
-</form>
-<!-- menampilkan hasil pencarian -->
+   
+   <!--
+    form quick search -->
 <font color = "fffff"> 
-<?php
-include('index.php');
-if(mysql_num_rows($result) > 0){
-    ?>
-    <table>
-      <tr>
-        <td>Nama barang</td>
-        <td>Harga</td>
-        <td>Stok</td>
 
+      
+      <?php ?>
+    </table>
+
+    <?php
+    
+$id=$_GET['id_barang'];
+$sql="select * from barang where id=".$id;
+$result = mysql_query($sql);
+if(mysql_num_rows($result) > 0){
+    
+
+
+
+/*
+if(isset($_GET['q']) && $_GET['q']){
+  $conn = mysql_connect("localhost", "root", "");
+  mysql_select_db("pesanlom");
+  $q = $_GET['q'];
+  $sql = "select * from barang where nama_barang like '%$q%' or harga like '%$q%' or stok like '%$q%'";
+  $result = mysql_query($sql);
+  if(mysql_num_rows($result) > 0){
+    ?>
+      <table class="table table-striped table-bordered table-hover" border="9">
+        
+      <tr>
+  <h1> 
+        <td><b>Nama barang</b></td>
+        <td><b>Harga</b></td>
+        <td><b>Stok</b></td>
+</h1>
       </tr>
+      
+       
+
       <?php
       while($barang = mysql_fetch_array($result)){?>
       <tr>
-        <td><?php echo $barang['nama_barang'];?></td>
-        <td><?php echo $barang['harga'];?></td>
-        <td><?php echo $barang['stok'];?></td>
-        
-      </tr>
+       <?php
+  
+    
+    echo "
+
+    <tr>
+    <td><a href=\"home.php\">".$barang['nama_barang']."</a></td>
+    <td>".$barang['harga']."</td>
+    <td>".$barang['stok']."</td>
+    </tr>";
+
+    
+ 
+  ?>
+      
       <?php }?>
     </table>
     <?php
   }else{
+
+    echo 'Data not found!';
+  }
+}*/
+?>
+ <table class="table table-striped table-bordered table-hover" border="9">
+        
+      <tr>
+  <h1> 
+        <td><b>Nama barang</b></td>
+        <td><b>Harga</b></td>
+        <td><b>Stok</b></td>
+</h1>
+      </tr>
+
+         <?php
+      while($barang = mysql_fetch_array($result)){?>
+      <tr>
+        <?php
+  
+    
+         echo "
+
+    <tr>
+    <td>".$barang['nama_barang']."</td>
+    <td>".$barang['harga']."</td>
+    <td>".$barang['stok']."</td>
+    </tr>";
+
+    
+ 
+  ?>
+  <?php }?>
+    </table>
+    <?php
+  }else{
+
     echo 'Data not found!';
   }
 
 ?>
-    </font>
+<font color = "fffff"> 
+<!-- menampilkan hasil pencarian -->
+
            
    
             </div>
-  <a href="index.php"><font color = "fffff">Kembali ke pencarian</font>         </a>
+
              </div>
 
         </div>
