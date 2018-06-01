@@ -18,7 +18,7 @@ echo "
 <td>".$data['nama_barang']."</td>
 <td>".$data['harga']."</td>
 <td>".$data['stock']."</td>
-</tr>";
+</tr>";/*data not foun
 }
 echo "</table>";
 ?>
