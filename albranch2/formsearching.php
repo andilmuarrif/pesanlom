@@ -14,7 +14,7 @@
 <td> <input type="text" name="name"> </td>
 </tr>
 <td></td>
-<td> <input type="SUBMIT" name="SUBMIT" id="SUBMIT" value="search" > </td>
+<td> <input type="SUBMIT" name="SUBMIT" id="SUBMIT" value="search!" > </td>
 </table>
 </form>
 </body>
