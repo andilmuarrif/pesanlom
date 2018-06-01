@@ -2,6 +2,7 @@
 	$dbhost="localhost";
 	$dbuser="root";
 	$dbpass="";
+/*data not found!!*/
 	$dbname="pesanlom";
 	$link = mysqli_connect ($dbhost, $dbuser, $dbpass, $dbname);
 
