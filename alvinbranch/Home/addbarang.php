@@ -64,9 +64,7 @@ while ($data = mysqli_fetch_assoc($query) ) {
 					<li>
                         <a href="../Login/addproduct.php"><i class="fa fa-edit "></i>Add Product</a>
                     </li>
-                    <li>
-                        <a href="../Login/updateproduct.php"><i class="fa fa-edit "></i>Update Product</a>
-                    </li>
+                   
 
 
                     
